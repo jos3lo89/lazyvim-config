@@ -96,6 +96,10 @@ return {
           "package-lock.json",
           "yarn.lock",
           "bun.lockb",
+          "init.lua",
+          ".angular",
+          ".vscode",
+          "dist",
         },
         prompt_prefix = "> ", -- Set the prompt to just ">"
         layout_strategy = "horizontal", -- Use horizontal layout
