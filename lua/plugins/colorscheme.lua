@@ -48,6 +48,106 @@
 --     },
 --   },
 -- }
+
+------------------capuichin
+--- kanagawa START
+return {
+  {
+    -- Plugin para el esquema de colores Kanagawa
+    "rebelot/kanagawa.nvim",
+    lazy = false, -- Cargar inmediatamente
+    priority = 1000, -- Alta prioridad para asegurarse de que se cargue temprano
+    config = function()
+      require("kanagawa").setup({
+        compile = false, -- habilitar compilación del esquema de colores
+        undercurl = true, -- habilitar undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false, -- no establecer color de fondo
+        dimInactive = false, -- atenuar ventanas inactivas
+        terminalColors = true, -- definir colores del terminal
+        colors = { -- añadir o modificar colores de tema y paleta
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors) -- añadir o modificar resaltados
+          return {}
+        end,
+        theme = "wave", -- Cargar tema "wave" si 'background' no está configurado
+        background = { -- mapear el valor de 'background' a un tema
+          dark = "wave", -- prueba "dragon" si prefieres algo más oscuro
+          light = "lotus",
+        },
+      })
+
+      -- Establecer el esquema de colores
+      vim.cmd("colorscheme kanagawa")
+    end,
+  },
+  {
+    -- Configuración de LazyVim para establecer el tema por defecto
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "kanagawa",
+    },
+  },
+}
+-- kanagawa END
+
+-- return {
+--   {
+--     "catppuccin/nvim",
+--     lazy = true,
+--     name = "catppuccin",
+--     opts = {
+--       flavour = "mocha", -- Define la variante oscura de Catppuccin
+--       transparent_background = true, -- Fondo transparente
+--       term_colors = true, -- Colores compatibles con terminal
+--       integrations = {
+--         aerial = true,
+--         alpha = true,
+--         cmp = true,
+--         dashboard = true,
+--         flash = true,
+--         gitsigns = true,
+--         illuminate = true,
+--         indent_blankline = { enabled = true },
+--         leap = true,
+--         lsp_trouble = true,
+--         mason = true,
+--         markdown = true,
+--         mini = true,
+--         native_lsp = {
+--           enabled = true,
+--           underlines = {
+--             errors = { "undercurl" },
+--             hints = { "undercurl" },
+--             warnings = { "undercurl" },
+--             information = { "undercurl" },
+--           },
+--         },
+--         navic = { enabled = true, custom_bg = "lualine" },
+--         noice = true,
+--         semantic_tokens = true,
+--         telescope = true,
+--         treesitter = true,
+--         treesitter_context = true,
+--         which_key = true,
+--       },
+--     },
+--   },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "catppuccin-mocha", -- Configura el esquema de colores predeterminado
+--     },
+--   },
+-- }
+---ENd
+
 -- sonokai theme
 -- return {
 --   {
@@ -69,25 +169,25 @@
 -- }
 -- solarized-osaka theme
 
-return {
-  {
-    "craftzdog/solarized-osaka.nvim",
-    -- lazy = true,
-    lazy = false,
-    priority = 1000,
-    opts = function()
-      return {
-        transparent = true,
-      }
-    end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "solarized-osaka",
-    },
-  },
-}
+-- return {
+--   {
+--     "craftzdog/solarized-osaka.nvim",
+--     -- lazy = true,
+--     lazy = false,
+--     priority = 1000,
+--     opts = function()
+--       return {
+--         transparent = true,
+--       }
+--     end,
+--   },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "solarized-osaka",
+--     },
+--   },
+-- }
 
 -- return {
 --   {
